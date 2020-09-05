@@ -11,18 +11,22 @@ def home(request):
     objects=Todoitem.objects.all()   
     return render(request,'show.html',{'dataset':objects})
 def graph(request):
+    li=[]
     var=int(request.POST.get('graph'))
     temp=Todoitem.objects.get(id=var)
-    ptr=temp.data
-    ptr2=temp.data2
+    setter=[100,100,100,100,100]
+    li.append(temp.data1)
+    li.append(temp.data2)
+    li.append(temp.data3)
+    li.append(temp.data4)
+    li.append(temp.data5)
     plt.axes().spines['bottom'].set_position(('data',0))
     fig=plt.gcf()
     plt.axes().spines["left"].set_position(('data',0))
     fig=plt.gcf()
-    plt.plot(ptr,ptr2,color='r')
+    plt.plot(li,setter,color='r')
     fig=plt.gcf()
-    plt.scatter(ptr,ptr2)
-    fig=plt.gcf()
+
     buf=io.BytesIO()
     fig.savefig(buf,format="png")
     buf.seek(0)
@@ -30,7 +34,7 @@ def graph(request):
     uri=urllib.parse.quote(string)
     return render(request,'graph.html',{'data':uri})
 def addhome(request):
-    newitem=Todoitem(content=request.POST.get('name'),data=request.POST.get('data'),data2=request.POST.get('data2')) 
+    newitem=Todoitem(content=request.POST.get('name'),data1=int(request.POST.get('data1')),data2=int(request.POST.get('data2')),data3=int(request.POST.get('data3')),data4=int(requets.POST.get('data4')),data5=int(request.POST,get('data5'))) 
     newitem.save()
     objects=Todoitem.objects.all()
     return render(request,'home.html',{'dataset':objects})

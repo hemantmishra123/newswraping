@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<head>
+<style>
+h1{
+    color:red;
+
+}
+li{
+    color:red;
+}
+body{
+    background-color:black;
+
+}
+h1{
+    color:red;
+    text-align: center;
+}
+</style>
+</head>
+<body>
+<h1>GRAPH</h1>
+    <select>
+        <option disabled="true" selected>-- Select Symbol --</option>
+         {% for item in dataset %}
+        <option>{{item.content}}</option>
+        {% endfor %}
+        </select>
+<form action="/addhome/" method="POST">{% csrf_token %}
+<br>
+<input type="text " name="name"/>
+</br>
+<br>
+<intput type="text" name="data2"/>
+</br>
+<br>
+<br>
+<intput type="text" name="data2"/>
+</br>
+<br>
+<input type="text" name="data3"/>
+</br>
+<br>
+<input type=text" name="data4"/>
+<br>
+<br>
+<input type ="text" name="data5"/>
+</br>
+<input type="submit" value="Add"/>
+</form>
+
+<form action="/graph/" method="POST">{% csrf_token %}
+<input type="text" name="graph"/>
+<input type="submit" value="Get-GRAPH"/>
+</form>
+<form action="/addhome/" method="GET">{% csrf_token %}
+<input type="text" name="data"/>
+<input type="submit" value="POST"/>
+</form>
+
+<form action="/delete/" method="POST">{% csrf_token %}
+<input type="text" name="del"/>
+<inpuyt type="submit" value="DEL">
+</form>
+</body>
+</head>
+</html>
