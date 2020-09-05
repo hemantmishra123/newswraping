@@ -1,0 +1,43 @@
+<style>
+h1{
+    color:red;
+
+}
+li{
+    color:red;
+}
+body{
+    background-color:black;
+
+}
+</style>
+<h1>this is the list of my dream company </h1>
+>
+    <title>
+        WELCOME TO THE CODING WORLD APP!!
+    </title>
+    <h1 style="text-align:center;">
+        WElCOME TO THE CODING WORLD !!
+    </h1>
+    <h2 style="text-align:center;">
+        Created by HEMANT MISHRA
+    </h2>
+    <hr>
+    <select>
+        <option disabled="true" selected>-- Select Symbol --</option>
+        {% for item in dataset %}
+        <option>{{item.content}}</option>
+        {% endfor %}
+          </select>
+<form action="/addhome/" method="POST">{% csrf_token %}
+<input type="text " name="name"/>
+<input type="submit" value="Add"/>
+</form>
+<form action="/addhome/" method="GET">{% csrf_token %}
+<input type="text" name="data"/>
+<input type="submit" value="POST"/>
+</form>
+<form action="/delete/" method="POST">{% csrf_token %}
+<input type="text" name="del"/>
+<inpuyt type="submit" value="DEL">
+</form>
