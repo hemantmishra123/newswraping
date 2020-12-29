@@ -6,4 +6,6 @@ urlpatterns = [
     path('addhome/',views.addhome,name="addhome"),
     path('dataflow/',views.dataflow,name="dataflow"),
     path('graph/',views.graph,name="graph")
+    #path("datalab/",views.datalab,name="datalb"),
 ]
+
